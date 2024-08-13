@@ -1,8 +1,6 @@
 ## Requirements
 
-* Operating System: MacOS or Linux
 * [Node.js](https://nodejs.org/) (I recommend installing with [NVM](https://github.com/nvm-sh/nvm))
-* [Homebrew](https://brew.sh) (to install MongoDB)
 
 ## Quick Start
 
@@ -10,15 +8,6 @@
 
 ```bash
 npm install
-
-# Install MongoDB
-brew tap mongodb/brew
-brew install mongodb-community
-```
-
-Start the database
-```bash
-brew services start mongodb-community
 ```
 
 #### for Development

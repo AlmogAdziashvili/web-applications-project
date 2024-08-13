@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 
-require('./config/environment');
+require('./config/env');
 require('./database');
 
 const routes = require('./routes/index');

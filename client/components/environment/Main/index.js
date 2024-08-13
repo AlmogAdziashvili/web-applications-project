@@ -18,6 +18,6 @@ export default function Main() {
   return (
     <div className={styles.main}>
       <RouterProvider router={router} />
-    </div >
+    </div>
   );
 }
