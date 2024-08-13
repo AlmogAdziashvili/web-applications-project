@@ -1,3 +1,10 @@
-import HomePage from './HomePage';
+import React from 'react';
 
-export default HomePage;
+export default function HomePage() {
+  return (
+
+    <div>
+      hi
+    </div>
+  );
+}

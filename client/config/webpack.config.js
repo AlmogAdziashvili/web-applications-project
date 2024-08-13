@@ -1,4 +1,4 @@
-const path              = require('path');
+const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -17,33 +17,18 @@ const WebpackDefinePluginConfig = new webpack.DefinePlugin({
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: resolve('client/index.html'),
-  favicon: resolve('client/assets/icons/favicon.ico'),
   filename: 'index.html',
   inject: 'body',
 });
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    resolve('client/styles/scss/index.scss'),
-    resolve('client/assets/index.js'),
-    resolve('client/index.js'),
-  ],
+  entry: [resolve('client/index.js')],
   output: {
     filename: isDev ? '[name].js' : '[name].[fullhash].js',
     path: resolve('dist'),
     publicPath: '/',
     clean: true,
-  },
-  resolve: {
-    alias: {
-      _client: resolve('client'),
-      _components: resolve('client/components/'),
-      _store: resolve('client/store/'),
-      _utils: resolve('client/utils/'),
-      _hooks: resolve('client/hooks/'),
-      _api: resolve('client/api/'),
-    },
   },
   module: {
     rules: [
@@ -71,14 +56,6 @@ module.exports = {
         test: /\.css$/,
         use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
         exclude: /\.module\.css$/,
-      },
-      {
-        test: /\.scss$/,
-        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
       {
         test: /\.(jpe?g|png|gif)$/,
