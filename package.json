@@ -4,11 +4,11 @@
   "main": "server/index.js",
   "scripts": {
     "build": "npm run build:prd",
-    "build:prd": "NODE_ENV=production webpack --mode=production --config ./client/config/webpack.prd.config.js",
-    "build:dev": "NODE_ENV=development webpack --mode=development --config ./client/config/webpack.dev.config.js",
+    "build:prd": "webpack --mode=production --config ./client/config/webpack.prd.config.js",
+    "build:dev": "webpack --mode=development --config ./client/config/webpack.dev.config.js",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "start:server": "nodemon server/index.js",
-    "start:client": "NODE_ENV=development webpack --mode=development --config ./client/config/webpack.dev.config.js --watch"
+    "start:client": "webpack --mode=development --config ./client/config/webpack.dev.config.js --watch"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
