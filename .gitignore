@@ -11,6 +11,7 @@ coverage
 
 # Environment
 .env*
+server/config/env.js
 
 # NPM
 .npm
