@@ -1,10 +1,15 @@
 const path = require('path');
-
 const express = require('express');
+
+const { requireAuth, requireNoAuth } = require('../middleware/auth.js');
 
 const router = express.Router();
 
-router.get('/*', (req, res) => {
+router.get(['/signin', '/signup'], requireNoAuth, (_, res) => {
+  res.sendFile(path.resolve(__dirname, '../../dist', 'auth.html'));
+});
+
+router.get(['/'], requireAuth, (_, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist', 'index.html'));
 });
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { createRoot } from 'react-dom/client';
 
-import Main from './components/environment/Main';
+import Auth from './components/environment/Auth';
 import '@mantine/core/styles.css';
 
 createRoot(document.getElementById('app'))
-  .render(<Main />);
+  .render(<Auth />);

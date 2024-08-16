@@ -19,11 +19,22 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: resolve('client/index.html'),
   filename: 'index.html',
   inject: 'body',
+  chunks: ['main'],
+});
+
+const AuthHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: resolve('client/auth.html'),
+  filename: 'auth.html',
+  inject: 'body',
+  chunks: ['auth'],
 });
 
 module.exports = {
   devtool: 'source-map',
-  entry: [resolve('client/index.js')],
+  entry: {
+    main: resolve('client/index.js'),
+    auth: resolve('client/auth.js'),
+  },
   output: {
     filename: isDev ? '[name].js' : '[name].[fullhash].js',
     path: resolve('dist'),
@@ -82,6 +93,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
+    AuthHtmlWebpackPluginConfig,
     WebpackDefinePluginConfig,
   ],
   performance: {
