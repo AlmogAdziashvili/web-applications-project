@@ -9,7 +9,7 @@ router.get(['/signin', '/signup'], requireNoAuth, (_, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist', 'auth.html'));
 });
 
-router.get(['/'], requireAuth, (_, res) => {
+router.get(['/', '/admin'], requireAuth, (_, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist', 'index.html'));
 });
 

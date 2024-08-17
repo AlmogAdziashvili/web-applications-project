@@ -10,7 +10,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(function (user, cb) {
   process.nextTick(function () {
-    cb(null, { id: user.id, username: user.username });
+    cb(null, { id: user.id, username: user.username, isAdmin: user.isAdmin });
   });
 });
 
@@ -46,7 +46,7 @@ router.post('/signin', requireNoAuth, passport.authenticate('local'), (req, res)
   res.json({ message: 'Successful' });
 });
 
-router.post('/signout', requireAuth, (req, res, next) => {
+router.get('/signout', requireAuth, (req, res, next) => {
   req.logout((err) => {
     if (err) { return next(err); }
     res.redirect('/signin');

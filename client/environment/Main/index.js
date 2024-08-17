@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import HomePage from '../../../components/pages/HomePage';
+import Dashboard from '../..//pages/Dashboard';
 import { createTheme, MantineProvider, Flex } from '@mantine/core';
 import axios from 'axios';
-import { Context } from '../../../components/context';
+import { Context } from '../../context';
+import Admin from '../../pages/Admin';
+import Search from '../../pages/Search';
+import Portfolios from '../../pages/Portfolios';
 
 const theme = createTheme({
-  primaryColor: 'teal'
+  primaryColor: 'teal',
+  cursorType: 'pointer',
 });
 
 export default function Main() {
@@ -22,12 +26,22 @@ export default function Main() {
   }, []);
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <HomePage />,
-    },
-  ]);
+  const router = createBrowserRouter([{
+    path: "/",
+    element: <Dashboard />,
+  }, {
+    path: '/admin',
+    element: <Admin />,
+  }, {
+    path: '/search',
+    element: <Search />,
+  }, {
+    path: 'portfolios',
+    element: <Portfolios />,
+  }, {
+    path: '*',
+    element: <Dashboard />,
+  }]);
 
   return (
     <Context.Provider value={user}>

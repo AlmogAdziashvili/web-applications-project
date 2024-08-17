@@ -9,6 +9,7 @@ require('./database');
 
 const routes = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const usersRoutes = require('./routes/users');
 
 const assetFolder = path.resolve(__dirname, '../dist/');
 const port = process.env.PORT;
@@ -24,6 +25,7 @@ app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUniniti
 app.use(passport.authenticate('session'));
 
 app.use('/auth', authRoutes);
+app.use('/users', usersRoutes);
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
