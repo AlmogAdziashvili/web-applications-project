@@ -11,6 +11,9 @@ export default function Dashboard() {
   return (
     <Flex flex='1' bg={backgroundGradient}>
       <Navbar />
+      <div>
+        Ben
+      </div>
     </Flex >
   );
 }
