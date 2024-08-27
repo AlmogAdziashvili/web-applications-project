@@ -39,7 +39,7 @@ export function AdminUsers() {
         <Table.Td>{index + 1}</Table.Td>
         <Table.Td>{user.name}</Table.Td>
         <Table.Td>{user.username}</Table.Td>
-        <Table.Td><Switch checked={user.isAdmin} onChange={handleSwitchChange(user.username)} disabled={currentUser?.id === user.id} /></Table.Td>
+        <Table.Td><Switch checked={user.isAdmin} onChange={handleSwitchChange(user.username)} disabled={currentUser?._id === user._id} /></Table.Td>
       </Table.Tr>
     ));
   }, [users, currentUser]);

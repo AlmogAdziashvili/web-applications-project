@@ -54,8 +54,8 @@ router.get('/signout', requireAuth, (req, res, next) => {
 });
 
 router.get('/profile', requireAuth, async (req, res) => {
-  const { isAdmin, name, username } = await User.findOne({ username: req.user.username });
-  res.json({ isAdmin, name, username });
+  const { isAdmin, name, username, _id } = await User.findOne({ username: req.user.username });
+  res.json({ isAdmin, name, username, _id });
 });
 
 module.exports = router;
