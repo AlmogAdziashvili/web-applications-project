@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context';
 import { Navbar } from '../../components/Navbar';
 import { AdminUsers } from '../../components/AdminUsers';
-import { IconUsers } from '@tabler/icons-react';
+import { IconUsers, IconCurrencyDollar } from '@tabler/icons-react';
+import { AdminStocks } from '../../components/AdminStocks';
 
 export default function Admin() {
   const user = React.useContext(Context);
@@ -25,11 +26,15 @@ export default function Admin() {
           <Card flex={1} radius='md' mb='md'>
             <Tabs.List>
               <Tabs.Tab value='users' leftSection={<IconUsers size="1rem" stroke={1.5} />}>Users</Tabs.Tab>
+              <Tabs.Tab value='stocks' leftSection={<IconCurrencyDollar size="1rem" stroke={1.5} />}>Stocks</Tabs.Tab>
             </Tabs.List>
           </Card>
           <Card flex={1} radius='md'>
             <Tabs.Panel value='users'>
               <AdminUsers />
+            </Tabs.Panel>
+            <Tabs.Panel value='stocks'>
+              <AdminStocks />
             </Tabs.Panel>
           </Card>
         </Tabs>
