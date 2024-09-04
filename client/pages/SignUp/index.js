@@ -50,7 +50,7 @@ export default function SignUp() {
               <Title order={1} c='gray.9'>Sign Up</Title>
               <TextInput w='300' label="Name" placeholder="John Doe" key={form.key('name')} {...form.getInputProps('name')} />
               <TextInput w='300' label="Email" placeholder="your@email.com" key={form.key('username')} {...form.getInputProps('username')} />
-              <TextInput w='300' label="Password" placeholder="********" key={form.key('password')} {...form.getInputProps('password')} />
+              <TextInput type='password' w='300' label="Password" placeholder="********" key={form.key('password')} {...form.getInputProps('password')} />
               {errorMessage && <Text w='300' size='xs' c='red'>{errorMessage}</Text>}
               <Button fullWidth type="submit">Submit</Button>
             </Flex>
