@@ -11,6 +11,7 @@ const routes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 const stocksRoute = require('./routes/stocks');
+const portfoliosRoute = require('./routes/portfolios');
 
 const assetFolder = path.resolve(__dirname, '../dist/');
 const port = process.env.PORT;
@@ -28,6 +29,7 @@ app.use(passport.authenticate('session'));
 app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 app.use('/stocks', stocksRoute);
+app.use('/portfolios', portfoliosRoute);
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
