@@ -12,6 +12,7 @@ export default function Admin() {
   const theme = useMantineTheme();
   const backgroundGradient = getGradient({ deg: 45, from: 'teal.2', to: 'gray.2' }, theme);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (user && !user.isAdmin) {
       navigate('/');
