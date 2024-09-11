@@ -29,7 +29,7 @@ app.use(passport.authenticate('session'));
 app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 app.use('/stocks', stocksRoute);
-app.use('/portfolios', portfoliosRoute);
+app.use('/api/portfolios', portfoliosRoute);
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

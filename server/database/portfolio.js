@@ -6,14 +6,14 @@ const PortfolioSchema = new Schema({
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
+  user: {
+    type: 'ObjectId',
+    ref: 'user',
   },
-  stocks: {
-    type: String,
-    required: true
-  },
+  stocks: [{
+    type: 'ObjectId',
+    ref: 'stock',
+  }],
 });
 
 const PortfolioModel = mongoose.model('portfolio', PortfolioSchema);

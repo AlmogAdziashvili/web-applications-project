@@ -7,6 +7,7 @@ import { Context } from '../../context';
 import Admin from '../../pages/Admin';
 import Search from '../../pages/Search';
 import Portfolios from '../../pages/Portfolios';
+import Portfolio from '../../pages/Portfolio';
 
 const theme = createTheme({
   primaryColor: 'teal',
@@ -36,7 +37,10 @@ export default function Main() {
     path: '/search',
     element: <Search />,
   }, {
-    path: 'portfolios',
+    path: '/portfolios/:id',
+    element: <Portfolio />,
+  }, {
+    path: '/portfolios',
     element: <Portfolios />,
   }, {
     path: '*',
