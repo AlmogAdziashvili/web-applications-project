@@ -9,7 +9,7 @@ import css from './index.module.css';
 const navbarLinks = [
   { label: 'Dashboard', path: '/', icon: <IconHome size="1rem" stroke={1.5} /> },
   { label: 'Search Stock', path: '/search', icon: <IconSearch size="1rem" stroke={1.5} /> },
-  { label: 'My Portfolios', path: '/portfolios', icon: <IconCoin size="1rem" stroke={1.5} /> },
+  { label: 'Community Portfolios', path: '/portfolios', icon: <IconCoin size="1rem" stroke={1.5} /> },
 ];
 
 export function Navbar() {
@@ -22,10 +22,10 @@ export function Navbar() {
   return (
     <Flex className={css.toolbarWrapper} bg='white' direction='column' pt='xl' pb='xl' gap='xl' justify='space-between' miw={200}>
       <Flex direction='column' align='center' gap='xl'>
-        <Title order={3}>Bashi</Title>
+        <Title order={3}>Hello {user?.name}</Title>
         <Flex direction='column' w='100%'>
           {navbarLinks.map(({ label, path, icon }) => (
-            <NavLink key={label} active={location.pathname === path} onClick={() => navigate(path)} label={label} leftSection={icon} rightSection={<IconChevronRight size="1rem" stroke={1.5} />} />
+            <NavLink key={label} active={path === '/' ? location.pathname === path : location.pathname.startsWith(path)} onClick={() => navigate(path)} label={label} leftSection={icon} rightSection={<IconChevronRight size="1rem" stroke={1.5} />} />
           ))}
         </Flex>
       </Flex>
