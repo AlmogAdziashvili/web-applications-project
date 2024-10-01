@@ -8,6 +8,7 @@ import Admin from '../../pages/Admin';
 import Search from '../../pages/Search';
 import Portfolios from '../../pages/Portfolios';
 import Portfolio from '../../pages/Portfolio';
+import Stock from '../../pages/Stock';
 
 const theme = createTheme({
   primaryColor: 'teal',
@@ -33,6 +34,9 @@ export default function Main() {
   }, {
     path: '/admin',
     element: <Admin />,
+  }, {
+    path: '/search/:symbol',
+    element: <Stock />
   }, {
     path: '/search',
     element: <Search />,

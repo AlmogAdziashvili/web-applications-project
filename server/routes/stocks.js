@@ -7,6 +7,11 @@ const Stock = require('../database/stock.js');
 
 const router = express.Router();
 
+router.get('/:symbol', async (req, res) => {
+  const stock = await Stock.findOne({ symbol: req.params.symbol.toUpperCase() });
+  res.json(stock);
+});
+
 router.get('/', async (_, res) => {
   const stocks = await Stock.find();
   res.json(stocks);
