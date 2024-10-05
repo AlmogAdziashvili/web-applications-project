@@ -49,6 +49,7 @@ export function AdminStocks() {
         <Table.Td>{stock.name}</Table.Td>
         <Table.Td>{stock.symbol}</Table.Td>
         <Table.Td>{stock.location}</Table.Td>
+        <Table.Td>{stock.sector}</Table.Td>
         <Table.Td>
           <ActionIcon variant="subtle" onClick={editStock(stock)}>
             <IconEdit style={{ width: '70%', height: '70%' }} stroke={1.5} />
@@ -83,6 +84,7 @@ export function AdminStocks() {
             <Table.Th>Company Name</Table.Th>
             <Table.Th>Symbol</Table.Th>
             <Table.Th>Location</Table.Th>
+            <Table.Th>Sector</Table.Th>
             <Table.Th>Edit</Table.Th>
             <Table.Th>Delete</Table.Th>
           </Table.Tr>

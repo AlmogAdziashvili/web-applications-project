@@ -15,6 +15,10 @@ const StockSchema = new Schema({
     type: String,
     required: true
   },
+  sector: {
+    type: String,
+    required: false
+  }
 });
 
 const StockModel = mongoose.model('stock', StockSchema);

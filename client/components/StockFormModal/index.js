@@ -1,11 +1,12 @@
 import React from 'react';
-import { Flex, TextInput, Button, Modal } from '@mantine/core';
+import { Flex, TextInput, Button, Modal, Select} from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 export function StockFormModal(props) {
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: props.currentStock,
+
     validate: {
       name: (value) => (value ? null : 'Please enter a company name'),
       symbol: (value) => (value ? null : 'Please enter a symbol'),
@@ -20,6 +21,7 @@ export function StockFormModal(props) {
           <TextInput label="Company Name" placeholder="i.e. Apple" key={form.key('name')} {...form.getInputProps('name')} />
           <TextInput label="Symbol" placeholder="i.e. AAPL" key={form.key('symbol')} {...form.getInputProps('symbol')} />
           <TextInput label="Location" placeholder="i.e. California" key={form.key('location')} {...form.getInputProps('location')} />
+          <Select data={['Technology', 'Finance', 'Retail']} label="Sector" placeholder="i.e. Finance" key={form.key('sector')} {...form.getInputProps('sector')} />
           <Button variant="light" type="submit">Save</Button>
         </Flex>
       </form>

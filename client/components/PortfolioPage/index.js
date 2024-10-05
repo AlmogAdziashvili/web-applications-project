@@ -2,8 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { Text, Card, Title, Flex, ActionIcon, Loader, Table } from '@mantine/core';
 import * as d3 from 'd3';
+import { IconLink } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
 
 export function PortfolioPage(props) {
+  const navigate = useNavigate();
   const [values, setValues] = React.useState(null);
   React.useEffect(() => {
     axios.get('/api/portfolios/' + props.portfolio._id + '/value').then((response) => setValues(response.data));
@@ -135,6 +138,10 @@ export function PortfolioPage(props) {
   const changeFromYesterday = (values?.[0] - values?.[1]).toFixed(2);
   const changeFromYesterdayPercent = ((changeFromYesterday / values?.[1]) * 100).toFixed(2);
 
+  const navigateToStock = (symbol) => () => {
+    navigate(`/search/${symbol}`);
+  };
+
   if (!values || !timeSeries) {
     return <Flex align='center' justify='center' flex='1'><Loader /></Flex>;
   }
@@ -158,6 +165,7 @@ export function PortfolioPage(props) {
                 <Table.Th>Stock</Table.Th>
                 <Table.Th>Quantity</Table.Th>
                 <Table.Th>Value</Table.Th>
+                <Table.Th>Link</Table.Th>
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody>
@@ -166,6 +174,11 @@ export function PortfolioPage(props) {
                   <Table.Td>{holding.stock.symbol}</Table.Td>
                   <Table.Td>{holding.quantity}</Table.Td>
                   <Table.Td>${(+stocksValues[holding.stock.symbol]).toFixed(2)}</Table.Td>
+                  <Table.Td>
+                    <ActionIcon variant="subtle" onClick={navigateToStock(holding.stock.symbol)}>
+                      <IconLink style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                    </ActionIcon>
+                  </Table.Td>
                 </Table.Tr>
               ))}
             </Table.Tbody>

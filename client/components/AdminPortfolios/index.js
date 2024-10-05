@@ -30,7 +30,7 @@ export function AdminPortfolios() {
         <Table.Td>{index + 1}</Table.Td>
         <Table.Td>{portfolio.name}</Table.Td>
         <Table.Td>{portfolio.user.username}</Table.Td>
-        <Table.Td>{portfolio.stocks.map(s => s.symbol).join(', ')}</Table.Td>
+        <Table.Td>{portfolio.stocks.map(s => s.stock.symbol).join(', ')}</Table.Td>
         <Table.Td>
           <ActionIcon variant="subtle" onClick={navigateToPortfolio(portfolio._id)}>
             <IconLink style={{ width: '70%', height: '70%' }} stroke={1.5} />
