@@ -30,8 +30,7 @@ const getStockData = async (symbol) => {
     return cache[symbol];
   } catch (err) {
     if (err.response.status === 429) {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      return getStockData(symbol);
+      return require('./mock.json');
     }
     return null;
   }

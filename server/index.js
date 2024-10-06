@@ -14,7 +14,7 @@ const stocksRoute = require('./routes/stocks');
 const portfoliosRoute = require('./routes/portfolios');
 
 const assetFolder = path.resolve(__dirname, '../dist/');
-const port = process.env.PORT;
+const port = 3000;
 const app = express();
 
 app.use(express.static(assetFolder, { index: false }));
@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
+app.use(session({ secret: 'Haim', resave: false, saveUninitialized: false }));
 app.use(passport.authenticate('session'));
 
 app.use('/auth', authRoutes);

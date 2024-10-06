@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 const resolve = dir => path.join(__dirname, '../../', dir);
 
-const env = process.env.NODE_ENV || 'development';
+const env = 'development';
 const isDev = env === 'development';
 
 const WebpackDefinePluginConfig = new webpack.DefinePlugin({
